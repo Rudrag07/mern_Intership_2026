@@ -1,0 +1,59 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.portfolio{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+     
+}
+p{
+    color: rgb(7, 0, 48);
+    display: flex;
+    font-family:'poppins',sans-serif;
+    font-style: italic;
+    font-size: 2rem;
+    padding: 0%,0,0,0;
+    
+    }
+
+.h1{
+    font-size: 4rem;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blue;
+    background-color: rgb(121, 118, 111);
+
+        /* opacity:1; */
+    /* transform: translateX(0); */
+    /* animation: alternate-reverse; */
+    /* animation: slideFade 1.2s ease forwards;  */
+}
+img{
+    border-radius: 50%;
+    height:auto;
+    width:20% ;
+}
+body{
+background-color: yellow;
+}
+#marq{
+    text-align: center;
+}
+.photo{
+float:right;
+border-radius: 40px;
+}
+.photo1{
+    float: right;
+    border-radius: 40px;
+    padding-right: 20px;
+    padding-bottom:20px;
+    height: 300px;
+}

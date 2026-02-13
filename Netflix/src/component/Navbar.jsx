@@ -33,6 +33,22 @@ const Navbar = () => {
                 IPL
               </Link>
             </li>
+
+              <li class="nav-item">
+              <Link class="nav-link" to="/profile">
+                Profile
+              </Link>
+              </li>
+              <li class="nav-item">
+              <Link class="nav-link" to="/formhandling">
+                Form
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/formValidation">
+                Form2
+              </Link>
+              </li>
           </ul>
         </div>
       </nav>

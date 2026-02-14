@@ -1,66 +1,54 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-export const Formhandling = () => {
 
-  const {register,handleSubmit} = useForm()
-  const [userData, setuserData] = useState({})
-  const [isSubmited, setisSubmited] = useState(false)
-  //handleSubmit --> form -->submmit -->handleSubmit --> it will handle submit...
-  //register is a function which is use for register input...
+const FormHandling = () => {
+  const [country,setCountry] = useState('');
+  const [state,setState] = useState('');
 
-  //callback function
-  const submitHandler = (data)=>{
-    console.log(data) //{} object
-    setuserData(data)
-    setisSubmited(true)
-  }
-  
+  const data = [
+    {country:"India",states:['Gujarat','Maharashtra','Rajasthan']},
+    {country:"USA",states:['California','Texas','Florida']},
+    {country:"Canada",states:['Ontario','Quebec','BritishColumbia']},
+  ]
+
+    const {register,handleSubmit}  = useForm();
+    const [Data,setData] = useState();
+    const submitHandler=(data) =>{
+        setData(data);
+        console.log(data)
+    }
   return (
-    <div style={{textAlign:"center"}}>
-        <h1>Form</h1>
-        <form onSubmit={handleSubmit(submitHandler)}>
-          <div>
-            <label>NAME</label>
-            <input type='text' {...register("firstName")}></input>
-          </div>
-          <div>
-            <label>AGE</label>
-            <input type='text' {...register("age")}></input>
-          </div>
-          <div>
-            <label>GENDER</label>  <br></br>
-            MALE:<input type='radio' value="male" {...register("gender")}></input>
-            FEMALE:<input type='radio' value="female" {...register("gender")}></input>
-          </div>
-          <div>
-            <label>HOBBIES</label> <br></br>
-            CRICKET :<input type='checkbox' value="cricket" {...register("hobbies")}></input>
-            FootBall :<input type='checkbox' value="football" {...register("hobbies")}></input>
-            Editing :<input type='checkbox' value="editing" {...register("hobbies")}></input>
-          </div>
-          <div>
-            Country:<select {...register("Country")}>
-                <option value="India" >India</option>
-                 <option value="Japan" >Japan</option>
-                  <option value="Russia" >Russia</option>
-                   <option value="Canada" >Caneda</option>
+    <div  className='container'>
+      <h2>Student Registration Form</h2>
 
-            </select>
-          </div>
-          <div>
-            <input type='Submit'></input>
-          </div>
-        </form>
+      <form onSubmit={handleSubmit(submitHandler)} > 
+       Name : <input type="text"name="name"placeholder="Student Name"  {...register("name")}/><br/><br/>
+       Email :  <input type="email" name="email" placeholder="Email" {...register("email")}/><br/><br/>
+       Phone :  <input type="tel" name="phone" placeholder="Phone Number" {...register("phone")}/><br/><br/>
+     
+       Country : <select value={country} {...register("country")} onChange={(e)=> setCountry(e.target.value)}>
+          <option value="">---Select Country---</option>
+            {data.map((d)=>{
+              return <option key={d.id}>{d.country}</option>
+            })}
+        </select><br/><br/>
 
-          {
-            isSubmited == true && <div>
-          <h1>OUTPUT</h1>
-          <h1>Name = {userData.Name}</h1>
-          <h2>Age = {userData.age}</h2>
-        </div>
-          }
-        
+       State : <select  value={state}  {...register("country")} onChange={(e)=>setState(e.target.value)} disabled={!country}>
+          <option value="">---Select State---</option>
+          {country && data.map((d)=>{
+            if(d.country === country){
+              return d.states.map((s)=>{
+                return <option key={s.id}>{s}</option>
+              })
+            }
+          })}
+       </select><br/><br/>
+        <input type="text" name="city" placeholder="City" {...register("city")}/><br/><br/>
+        <button type="submit"> Submit</button>
+      </form>
     </div>
   )
 }
+
+export default FormHandling

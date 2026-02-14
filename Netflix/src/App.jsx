@@ -1,4 +1,3 @@
-// import Netflixhome from '/Netflixhome'
 import Navbar from "./component/Navbar";
 import { Routes, Route } from "react-router-dom";
 import NetflixShow from "./NetflixShow";
@@ -10,8 +9,8 @@ import "./assets/style.css";
 import IplTeam from "./component/IplTeam";
 import TeamDetail from "./component/TeamDetail";
 import { Profile } from "./component/Profile";
-import { Formhandling } from "./component/ReactFormHook/FormHandling";
-import FormValidation from "./component/ReactFormHook/FormValidation";
+import { FormHandling } from "./component/ReactFormHook/FormHandling";
+import {FormValidation} from "./component/ReactFormHook/FormValidation";
 
 function App() {
   return (
@@ -26,7 +25,7 @@ function App() {
          <Route path="/iplteam/:name/:tropy" element={<IplTeam/>}/>
          <Route path="/teamdetail" element={<TeamDetail/>}/>
          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/formhandling" element={<Formhandling/>}/>
+          <Route path="/FormHandling" element={<FormHandling/>}/>
         <Route path="/formValidation" element={<FormValidation/>}/>
       </Routes>
     </>

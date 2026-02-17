@@ -9,8 +9,12 @@ import "./assets/style.css";
 import IplTeam from "./component/IplTeam";
 import TeamDetail from "./component/TeamDetail";
 import { Profile } from "./component/Profile";
-import { FormHandling } from "./component/ReactFormHook/FormHandling";
-import {FormValidation} from "./component/ReactFormHook/FormValidation";
+import FormHandling  from "./component/ReactFormHook/FormHandling";
+import FormValidation from "./component/ReactFormHook/FormValidation";
+import Api from "./component/ApiDemo/Api";
+import Api1 from "./component/ApiDemo/Api1";
+
+
 
 function App() {
   return (
@@ -25,8 +29,10 @@ function App() {
          <Route path="/iplteam/:name/:tropy" element={<IplTeam/>}/>
          <Route path="/teamdetail" element={<TeamDetail/>}/>
          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/FormHandling" element={<FormHandling/>}/>
+          <Route path="/formHandling" element={<FormHandling/>}/>
         <Route path="/formValidation" element={<FormValidation/>}/>
+        <Route path="/api" element={<Api/>}/>
+        <Route path="/api1" element={<Api1/>}/>
       </Routes>
     </>
   );

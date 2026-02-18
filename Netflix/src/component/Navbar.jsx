@@ -59,6 +59,19 @@ const Navbar = () => {
                 API1
               </Link>
               </li>
+              <li>
+              <Link class="nav-link" to="/Omdb">
+                OMDB
+              </Link>
+              </li>
+               <li>
+              <Link class="nav-link" to="/Moviedetail">
+                MovieDetail
+              </Link>
+              </li>
+              
+              
+         
           </ul>
         </div>
       </nav>

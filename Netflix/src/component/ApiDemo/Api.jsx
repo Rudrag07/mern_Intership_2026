@@ -1,47 +1,68 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from 'react'
+import axios from 'axios'
+import Productcalli from './Api1'
 
 const Api = () => {
 
-  const [products, setProducts] = useState([]);
+    const [message, setMessage] = useState("")
+    const [users, setUsers] = useState([])
+    const [show, setShow] = useState(false)
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then(res => res.json())
-      .then(data => setProducts(data.products))
-      .catch(err => console.log(err));
-  }, []);
+    const getUser = async () => {
 
-  return (
-    <div>
-      <h2>Product Table</h2>
-        <center>
-      <table border="1" cellPadding="10">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Rating</th>
-            <th>Stock</th>
-          </tr>
-        </thead>
+        const response = await axios.get("https://node5.onrender.com/user/user/")
+        console.log(response);
+        console.log(response.data.message)
+        setMessage(response.data.message)
+        setUsers(response.data.data)
+        // setShow(true)
+    }
 
-        <tbody>
-          {products.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td>{item.category}</td>
-              <td>{item.price}</td>
-              <td>{item.rating}</td>
-              <td>{item.stock}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table></center>
-    </div>
-  );
-};
+    return (
+        <div>
+            <h1>API</h1>
+            <button onClick={() => getUser()} onFocus={() => setShow(true)}>get</button>
+            <h3>{message}</h3>
 
-export default Api;
+            {show &&
+                <table className="table" >
+
+                    <thead >
+
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {
+                            users.map((user) => {
+                                return (
+
+                                    <tr>
+                                        <td>{user._id}</td>
+                                        <td>{user.name}</td>
+                                        <td>{user.email}</td>
+                                    </tr>
+
+                                )
+                            })
+                        }
+
+
+
+                    </tbody>
+
+
+
+                </table>
+            }
+
+            <Productcalli/>
+        </div>
+    )
+}
+
+export default Api

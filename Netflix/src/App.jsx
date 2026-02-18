@@ -13,6 +13,8 @@ import FormHandling  from "./component/ReactFormHook/FormHandling";
 import FormValidation from "./component/ReactFormHook/FormValidation";
 import Api from "./component/ApiDemo/Api";
 import Api1 from "./component/ApiDemo/Api1";
+import { Omdb } from "./component/ApiDemo/Omdb";
+import Moviedetail from "./component/ApiDemo/Moviedetail";
 
 
 
@@ -33,6 +35,9 @@ function App() {
         <Route path="/formValidation" element={<FormValidation/>}/>
         <Route path="/api" element={<Api/>}/>
         <Route path="/api1" element={<Api1/>}/>
+        <Route path="/omdb" element={<Omdb/>}/>
+        <Route path="/moviedetail" element={<Moviedetail/>}/>
+        
       </Routes>
     </>
   );

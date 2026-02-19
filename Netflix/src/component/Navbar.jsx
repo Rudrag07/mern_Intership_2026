@@ -66,11 +66,15 @@ const Navbar = () => {
               </li>
                <li>
               <Link class="nav-link" to="/Moviedetail">
-                MovieDetail
+                MovieSearch
               </Link>
               </li>
               
-              
+               <li>
+              <Link class="nav-link" to="/Series">
+                Series
+              </Link>
+              </li>
          
           </ul>
         </div>

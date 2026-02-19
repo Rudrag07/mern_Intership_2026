@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 function Moviedetail() {
   const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState("mr india");
+  const [search, setSearch] = useState("");
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   // Search Movies
@@ -31,12 +31,13 @@ function Moviedetail() {
 
   return (
     <div style={{ padding: "20px", color: "white" }}>
-      
+      <h1 style={{color:"cyan",fontFamily:"emoji",}}>Watchig All Movie's</h1>
       {/* 🔍 Search */}
       {!selectedMovie && (
         <div style={{ marginBottom: "20px" }}>
           <input
             type="text"
+            placeholder="Search Movie Name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{ padding: "8px", width: "300px" }}

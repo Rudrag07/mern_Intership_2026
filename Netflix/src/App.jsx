@@ -15,6 +15,7 @@ import Api from "./component/ApiDemo/Api";
 import Api1 from "./component/ApiDemo/Api1";
 import { Omdb } from "./component/ApiDemo/Omdb";
 import Moviedetail from "./component/ApiDemo/Moviedetail";
+import Series from "./component/ApiDemo/Series";
 
 
 
@@ -37,6 +38,9 @@ function App() {
         <Route path="/api1" element={<Api1/>}/>
         <Route path="/omdb" element={<Omdb/>}/>
         <Route path="/moviedetail" element={<Moviedetail/>}/>
+        <Route path="/Series" element={<Series/>}/>
+        
+        
         
       </Routes>
     </>
